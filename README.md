@@ -2,39 +2,65 @@
 
 ## Purpose
 
-This assignment is designed to familiarize you with essential Linux commands and file system operations. By completing this assignment, you will gain hands-on experience in:
+This GitHub Classroom exercise is meant to help students practice essential Linux shell operations in a reproducible way. The assignment uses a starter script with placeholders so students can implement the required commands themselves.
+
+Students should demonstrate competency in:
 
 - Creating and managing directory structures
-- Performing file operations such as creating, copying, moving, renaming, and deleting files
-- Managing file permissions and ownership
+- Creating, copying, moving, renaming, and deleting files
+- Adjusting file permissions and ownership
 - Creating symbolic links
-- Monitoring system resources and processes
-- Automating backup processes
+- Inspecting filesystem usage and process information
+- Creating a compressed backup archive
+- Writing a completion log entry
 
-## Using `Make`
+## Assignment Structure
 
-`Make` is a build automation tool that helps manage and automate the execution of commands. In this assignment, `Make` is used to streamline the setup, execution, and verification of tasks.
+- `src/lab1.sh`: starter script with placeholder sections for the Linux commands you must write
+- `Makefile`: setup, execution, and grading targets
+- `.github/workflows/test.yml`: GitHub Actions job that runs the automated checks
 
-### Key `Make` Targets
+## Required Work
 
-- **`all`**: Set up the environment, execute the script, and verify the results.
-- **`setup`**: Create necessary directories and files.
-- **`run`**: Execute the main script (`assignment.sh`).
-- **`verify`**: Check the correctness of the script's output by verifying directory and file states.
-- **`clean`**: Remove generated files and directories for cleanup.
+Complete the tasks in `src/lab1.sh` by replacing each `# TODO:` placeholder with the correct Linux command(s).
 
-## Submission
+The script is expected to:
 
-- Write the expected code under src/lab1.sh as marked # YOUR CODE HERE.
-- Use "make all" to verify correctness.
-- Add a commit and push it to your repository.
-- Ensure you have only one commit (use --amend when needed).
-- In Canvas, submit the URL of your repository with the lab.
+1. Create the `project` directory structure with `data`, `scripts`, `logs`, and `backup`
+2. Create five initial files in `project/data` with sample content
+3. Copy `file1.txt` into `project/backup`
+4. Rename `file3.txt` to `file3_renamed.txt`
+5. Move `file4.txt` and `file5.txt` into `project/logs`
+6. Delete `file2.txt` from `project/data`
+7. Display detailed directory listings and size information
+8. Set permissions and ownership on the required files
+9. Create a symbolic link in `project/scripts`
+10. Display disk usage and process information
+11. Create a dated backup archive under `project/backup`
+12. Write a completion message to `project/README.md`
+13. Verify that `project/data` exists at the end and exit with an error if it does not
 
-### Example Usage
+## Make Targets
 
-To execute the entire assignment process, run:
+- `make setup`: creates the expected directory layout
+- `make run`: runs `src/lab1.sh`
+- `make verify`: runs the assignment and checks the required filesystem, permissions, ownership, link, archive, and log results
+- `make all`: runs the full verification flow
+- `make clean`: removes the temporary project directory
+
+## GitHub Classroom Notes
+
+- Do not replace the file names or directory names that are already specified in the assignment.
+- Keep the script executable (`chmod +x src/lab1.sh`).
+- Use placeholders only where the assignment explicitly asks for them.
+- The grader is intentionally strict: the verification target checks the expected result of each task.
+
+## Local Validation
+
+Run the following commands locally before submitting:
 
 ```bash
 make all
 ```
+
+The above command should complete successfully only after you have implemented the required Linux commands in `src/lab1.sh`.
